@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyCompany.GenericResult.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace OnsTrou.Domain.Entities.WeddingFeature
             Venue = venue;
         }
 
-        public static Wedding Create(string name, DateTime eventDateUtc, Bride bride, Groom groom, WeddingVenue venue)
+        public static Result<Wedding> Create(string name, DateTime eventDateUtc, Bride bride, Groom groom, WeddingVenue venue)
         {
             var wedding = new Wedding(Guid.NewGuid(), name, eventDateUtc, bride, groom, venue);
             return wedding;
