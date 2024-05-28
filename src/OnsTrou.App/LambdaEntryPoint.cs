@@ -1,10 +1,10 @@
-namespace OnsTrou;
+namespace OnsTrou.App;
 
 /// <summary>
 /// This class extends from APIGatewayProxyFunction which contains the method FunctionHandlerAsync which is the 
 /// actual Lambda function entry point. The Lambda handler field should be set to
 /// 
-/// OnsTrou::OnsTrou.LambdaEntryPoint::FunctionHandlerAsync
+/// OnsTrou.App::OnsTrou.App.LambdaEntryPoint::FunctionHandlerAsync
 /// </summary>
 public class LambdaEntryPoint :
 

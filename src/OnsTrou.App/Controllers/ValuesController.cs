@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace OnsTrou.Controllers;
+namespace OnsTrou.App.Controllers;
 
 [Route("api/[controller]")]
 public class ValuesController : ControllerBase
