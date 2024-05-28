@@ -4,24 +4,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace OnsTrou.Domain.Entities
 {
-    [DynamoDBTable("test")]
-    public class Basic
+    public class Basic : AggregateRoot
     {
-        [DynamoDBHashKey("id")]
-        public string Id { get; private set; }
-
-        [DynamoDBProperty("name")]
         public string Name { get; set; }
+        public DateTime DateCreatedUtc { get; set; }
 
-
-        public Basic(string name)
+        public Basic() : base(nameof(Basic), Guid.NewGuid())
         {
-            Id = Guid.NewGuid().ToString();
+            
+        }
+
+        public Basic(string name) : base(nameof(Basic), Guid.NewGuid())
+        {
+            Id = Guid.NewGuid();
             Name = name;
+            DateCreatedUtc = DateTime.UtcNow;
         }
     }
 }

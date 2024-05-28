@@ -10,19 +10,15 @@ namespace OnsTrou.Domain.Primitives
 {
     public abstract class AggregateRoot
     {
-        //[JsonPropertyName("partitionKey")]
-        [DynamoDBHashKey("partitionKey")]
-        public string PartitionKey { get; private set; }
+        public string PartitionKey { get; init; }
 
-        //[JsonPropertyName("id")]
-        [DynamoDBHashKey("id")]
-        public string Id { get; private set; }
+        public Guid Id { get; init; }
 
         protected AggregateRoot()
         {
         }
 
-        protected AggregateRoot(string partitionKey, string id)
+        protected AggregateRoot(string partitionKey, Guid id)
         {
             PartitionKey = partitionKey;
             Id = id;

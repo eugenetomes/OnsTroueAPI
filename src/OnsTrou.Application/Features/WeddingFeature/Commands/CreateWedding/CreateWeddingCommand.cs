@@ -46,17 +46,9 @@ namespace OnsTrou.Application.Features.WeddingFeature.Commands.CreateWedding
                 return Result.Failure<Guid>(weddingResult.Error);
             }
 
-            try
-            {
-                await _weddingRepository.Create(weddingResult.Value, cancellationToken);
-            }
-            catch (Exception ex)
-            {
+            await _weddingRepository.Create(weddingResult.Value, cancellationToken);
 
-                throw;
-            }
-
-            return Guid.Parse(weddingResult.Value.Id);
+            return weddingResult.Value.Id;
         }
     }
 }

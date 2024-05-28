@@ -8,9 +8,15 @@ namespace OnsTrou.Domain.Entities.WeddingFeature
 {
     public class Bride
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string PersonalMessage { get; set; }
+        public string Name { get; init; }
+        public string Surname { get; init; }
+        public string PersonalMessage { get; init; }
+
+
+        public Bride()
+        {
+            
+        }
 
         public Bride(string name, string surname, string personalMessage)
         {

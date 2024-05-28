@@ -12,27 +12,30 @@ using System.Threading.Tasks;
 
 namespace OnsTrou.Persistence.Repositories
 {
-    internal sealed class WeddingRepository : IWeddingRepository
+    internal sealed class WeddingRepository : RepositoryBase, IWeddingRepository
     {
         private readonly IDynamoDBContext _context;
+        private readonly DynamoDBOperationConfig _dynamoDBOperationConfig;
 
         public WeddingRepository(IDynamoDBContext context)
         {
             _context = context;
+            _dynamoDBOperationConfig = GetConfig();
+        }
+
+
+        public async Task<Wedding> GetByIdAsync(Guid Id, CancellationToken cancellationToken)
+        {
+            var wedding = await _context.LoadAsync<Wedding>(nameof(Wedding), Id, _dynamoDBOperationConfig, cancellationToken);
+            return wedding;
         }
 
         public async Task Create(Wedding wedding, CancellationToken cancellationToken = default)
         {
-            var config = new DynamoDBOperationConfig
-            {
-                OverrideTableName = TableConstants.TableName
-            };
+            await _context.SaveAsync(wedding, _dynamoDBOperationConfig, cancellationToken);
 
-            var basic = new Basic(wedding.Name);
+            var result = await GetByIdAsync(wedding.Id, cancellationToken);
 
-            await _context.SaveAsync(basic, cancellationToken);
-        }
-
-        
+        } 
     }
 }
