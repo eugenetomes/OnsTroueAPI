@@ -1,4 +1,5 @@
-﻿using OnsTrou.Persistence.Constants;
+﻿using Amazon.DynamoDBv2.DataModel;
+using OnsTrou.Persistence.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace OnsTrou.Persistence.Repositories;
 
 internal abstract class RepositoryBase
 {
-    //public DynamoDBOperationConfig GetConfig()
-    //{
-    //    var config = new DynamoDBOperationConfig
-    //    {
-    //        OverrideTableName = TableConstants.TableName
-    //    };
-    //    return config;
-    //}
+    public DynamoDBOperationConfig GetConfig()
+    {
+        var config = new DynamoDBOperationConfig
+        {
+            OverrideTableName = TableConstants.TableName
+        };
+        return config;
+    }
 }
