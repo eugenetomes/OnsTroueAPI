@@ -2,6 +2,7 @@
 using MediatR;
 using OnsTrou.Application.Abstractions;
 using OnsTrou.Domain.Entities.WeddingFeature;
+using OnsTrou.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,13 @@ namespace OnsTrou.Application.Features.WeddingFeature.Commands.CreateWedding
 
     internal sealed class CreateWeddingCommandHandler : ICommandHandler<CreateWeddingCommand, Guid>
     {
+        private readonly IWeddingRepository _weddingRepository;
+
+        public CreateWeddingCommandHandler(IWeddingRepository weddingRepository)
+        {
+            _weddingRepository = weddingRepository;
+        }
+
         public async Task<Result<Guid>> Handle(CreateWeddingCommand request, CancellationToken cancellationToken)
         {
             var groom = new Groom(request.Groom.Name, request.Groom.Surname, request.Groom.PersonalMessage);
@@ -38,9 +46,17 @@ namespace OnsTrou.Application.Features.WeddingFeature.Commands.CreateWedding
                 return Result.Failure<Guid>(weddingResult.Error);
             }
 
+            try
+            {
+                await _weddingRepository.Create(weddingResult.Value, cancellationToken);
+            }
+            catch (Exception ex)
+            {
 
-            await Task.Delay(1);
-            return weddingResult.Value.Id;
+                throw;
+            }
+
+            return Guid.Parse(weddingResult.Value.Id);
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using OnsTrou.Application;
+using OnsTrou.Persistence;
 
 namespace OnsTrou;
 
@@ -16,6 +17,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddApplication();
+        services.AddPersistence(Configuration);
 
 
         services.AddSwaggerGen(c =>
