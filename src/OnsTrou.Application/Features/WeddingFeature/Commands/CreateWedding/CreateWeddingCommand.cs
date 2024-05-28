@@ -1,6 +1,7 @@
 ﻿using EasyCompany.GenericResult.Core;
 using OnsTrou.Application.Abstractions;
 using OnsTrou.Domain.Entities.WeddingFeature;
+using OnsTrou.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,13 @@ public record CreateWeddingCommand(
 
 internal sealed class CreateWeddingCommandHandler : ICommandHandler<CreateWeddingCommand, Guid>
 {
+    private readonly IWeddingRepository _weddingRepository;
+
+    public CreateWeddingCommandHandler(IWeddingRepository weddingRepository)
+    {
+        _weddingRepository = weddingRepository;
+    }
+
     public async Task<Result<Guid>> Handle(CreateWeddingCommand request, CancellationToken cancellationToken)
     {
         var groom = new Groom(request.Groom.Name, request.Groom.Surname, request.Groom.PersonalMessage);
@@ -37,7 +45,7 @@ internal sealed class CreateWeddingCommandHandler : ICommandHandler<CreateWeddin
         }
 
 
-        await Task.Delay(1);
-        return Guid.NewGuid();
+        await _weddingRepository.Create(weddingResult.Value, cancellationToken);
+        return weddingResult.Value.Id;
     }
 }
