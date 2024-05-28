@@ -14,4 +14,9 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="9.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnsTrou.Application\OnsTrou.Application.csproj" />
+    <ProjectReference Include="..\OnsTrou.Infrastructure\OnsTrou.Infrastructure.csproj" />
+    <ProjectReference Include="..\OnsTrou.Persistence\OnsTrou.Persistence.csproj" />
+  </ItemGroup>
 </Project>
