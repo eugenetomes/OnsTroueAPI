@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OnsTrou.Domain.Repositories;
+using OnsTrou.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,7 @@ public static class DependencyInjection
         //services.AddScoped<IDynamoDBContext, DynamoDBContext>();
 
         //Repositories
-        //services.AddScoped<IWeddingRepository, WeddingRepository>();
+        services.AddScoped<IWeddingRepository, WeddingRepository>();
 
         return services;
     }

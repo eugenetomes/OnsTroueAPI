@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnsTrou.App.Abstractions;
 using OnsTrou.App.Contracts.WeddingFeature;
+using OnsTrou.App.Mappers.WeddingFeature;
 using OnsTrou.Application.Features.WeddingFeature.Commands.CreateWedding;
 
 namespace OnsTrou.App.Controllers;
@@ -15,8 +16,8 @@ public sealed class WeddingController : ApiController
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateWeddingRequest request, CancellationToken cancellationToken)
     {
-        //var command = request.MapToCreateWeddingCommand();
-        var command = new CreateWeddingCommand();
+        var command = request.MapToCreateWeddingCommand();
+        
         var result = await _sender.Send(command, cancellationToken);
 
         if (result.IsSuccess)
