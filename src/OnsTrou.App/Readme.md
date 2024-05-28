@@ -58,12 +58,12 @@ If already installed check if new version is available.
 
 Execute unit tests
 ```
-    cd "OnsTrou/test/OnsTrou.Tests"
+    cd "OnsTrou.App/test/OnsTrou.App.Tests"
     dotnet test
 ```
 
 Deploy application
 ```
-    cd "OnsTrou/src/OnsTrou"
+    cd "OnsTrou.App/src/OnsTrou.App"
     dotnet lambda deploy-serverless
 ```

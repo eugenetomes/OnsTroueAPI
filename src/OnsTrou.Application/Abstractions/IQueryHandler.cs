@@ -6,10 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnsTrou.Application.Abstractions
-{
-    public interface IQueryHandler<TQuery, TResponse> : IRequestHandler<TQuery, Result<TResponse>>
+namespace OnsTrou.Application.Abstractions;
+
+public interface IQueryHandler<TQuery, TResponse> : IRequestHandler<TQuery, Result<TResponse>>
         where TQuery : IQuery<TResponse>
-    {
-    }
+{
 }

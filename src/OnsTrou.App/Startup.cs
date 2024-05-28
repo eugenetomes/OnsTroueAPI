@@ -2,7 +2,7 @@ using Microsoft.OpenApi.Models;
 using OnsTrou.Application;
 using OnsTrou.Persistence;
 
-namespace OnsTrou;
+namespace OnsTrou.App;
 
 public class Startup
 {
@@ -24,24 +24,25 @@ public class Startup
         {
             c.SwaggerDoc("v2", new OpenApiInfo { Title = "MVCCallWebAPI", Version = "v2" });
         });
-
         services.AddControllers();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
     {
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }
+        var loggerOptions = new LambdaLoggerOptions(Configuration);
+        loggerFactory.AddLambdaLogger(loggerOptions);
+
 
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
             c.SwaggerEndpoint("/swagger/v2/swagger.json", "MVCCallWebAPI");
         });
-
         app.UseHttpsRedirection();
 
         app.UseRouting();

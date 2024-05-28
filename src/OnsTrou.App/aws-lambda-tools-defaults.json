@@ -9,9 +9,9 @@
     "profile"     : "TomesTomes",
     "region"      : "eu-west-1",
     "configuration" : "Release",
-    "s3-prefix"     : "OnsTrou/",
+    "s3-prefix"     : "OnsTrou.App/",
     "template"      : "serverless.template",
     "template-parameters" : "",
-    "s3-bucket"           : "ons-trou-template",
-    "stack-name"          : "OnsTrou"
+    "s3-bucket"           : "s3-ons-trou-api",
+    "stack-name"          : "ons-trou-api"
 }

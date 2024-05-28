@@ -13,13 +13,13 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="9.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.6.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.6.2" />
+	<PackageReference Include="Amazon.Lambda.Logging.AspNetCore" Version="3.1.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.6.2" />
+	<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.6.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\OnsTrou.Application\OnsTrou.Application.csproj" />
-    <ProjectReference Include="..\src\OnsTrou.Infrastructure\OnsTrou.Infrastructure.csproj" />
-    <ProjectReference Include="..\src\OnsTrou.Persistence\OnsTrou.Persistence.csproj" />
-    <ProjectReference Include="..\src\OnsTrou.Presentation\OnsTrou.Presentation.csproj" />
+    <ProjectReference Include="..\OnsTrou.Application\OnsTrou.Application.csproj" />
+    <ProjectReference Include="..\OnsTrou.Infrastructure\OnsTrou.Infrastructure.csproj" />
+    <ProjectReference Include="..\OnsTrou.Persistence\OnsTrou.Persistence.csproj" />
   </ItemGroup>
 </Project>

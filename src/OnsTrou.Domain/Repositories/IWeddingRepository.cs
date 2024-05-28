@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnsTrou.Domain.Repositories
+namespace OnsTrou.Domain.Repositories;
+
+public interface IWeddingRepository
 {
-    public interface IWeddingRepository
-    {
-        Task Create(Wedding wedding, CancellationToken cancellationToken = default);
-    }
+    Task Create(Wedding wedding, CancellationToken cancellationToken = default);
 }

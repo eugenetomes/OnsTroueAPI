@@ -6,14 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnsTrou.Application.Abstractions
+namespace OnsTrou.Application.Abstractions;
+
+public interface ICommand : IRequest<Result>
 {
-    public interface ICommand : IRequest<Result>
-    {
-    }
+}
 
-    public interface ICommand<TResponse> : IRequest<Result<TResponse>>
-    {
+public interface ICommand<TResponse> : IRequest<Result<TResponse>>
+{
 
-    }
 }

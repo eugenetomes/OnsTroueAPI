@@ -6,17 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnsTrou.Persistence.Repositories
+namespace OnsTrou.Persistence.Repositories;
+
+internal abstract class RepositoryBase
 {
-    internal abstract class RepositoryBase
+    public DynamoDBOperationConfig GetConfig()
     {
-        public DynamoDBOperationConfig GetConfig()
+        var config = new DynamoDBOperationConfig
         {
-            var config = new DynamoDBOperationConfig
-            {
-                OverrideTableName = TableConstants.TableName
-            };
-            return config;
-        }
+            OverrideTableName = TableConstants.TableName
+        };
+        return config;
     }
 }

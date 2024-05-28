@@ -1,12 +1,12 @@
 {
   "profiles": {
-    "OnsTrou": {
+    "OnsTrou.App": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:54867/;http://localhost:54868"
+      "applicationUrl": "https://localhost:59334;http://localhost:59335"
     },
     "Mock Lambda Test Tool": {
       "commandName": "Executable",

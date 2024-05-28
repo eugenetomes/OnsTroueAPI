@@ -1,9 +1,6 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
-using EasyCompany.GenericResult.Core;
-using OnsTrou.Domain.Entities;
 using OnsTrou.Domain.Entities.WeddingFeature;
 using OnsTrou.Domain.Repositories;
-using OnsTrou.Persistence.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +20,6 @@ namespace OnsTrou.Persistence.Repositories
             _dynamoDBOperationConfig = GetConfig();
         }
 
-
         public async Task<Wedding> GetByIdAsync(Guid Id, CancellationToken cancellationToken)
         {
             var wedding = await _context.LoadAsync<Wedding>(nameof(Wedding), Id, _dynamoDBOperationConfig, cancellationToken);
@@ -33,9 +29,6 @@ namespace OnsTrou.Persistence.Repositories
         public async Task Create(Wedding wedding, CancellationToken cancellationToken = default)
         {
             await _context.SaveAsync(wedding, _dynamoDBOperationConfig, cancellationToken);
-
-            var result = await GetByIdAsync(wedding.Id, cancellationToken);
-
-        } 
+        }
     }
 }
