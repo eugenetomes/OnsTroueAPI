@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnsTrou.Application\OnsTrou.Application.csproj" />
+    <ProjectReference Include="..\OnsTrou.Persistence\OnsTrou.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
 using Microsoft.OpenApi.Models;
+using OnsTrou.Application;
+using OnsTrou.Persistence;
 
 namespace OnsTrou;
 
@@ -14,6 +16,10 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddApplication();
+        services.AddPersistence(Configuration);
+
+
         services.AddSwaggerGen(c =>
         {
             c.SwaggerDoc("v2", new OpenApiInfo { Title = "MVCCallWebAPI", Version = "v2" });

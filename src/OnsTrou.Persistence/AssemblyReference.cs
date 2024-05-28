@@ -1,4 +1,6 @@
-﻿namespace OnsTrou.Persistence;
+﻿using System.Reflection;
+
+namespace OnsTrou.Persistence;
 
 public static class AssemblyReference
 {
