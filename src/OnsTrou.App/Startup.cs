@@ -49,6 +49,11 @@ public class Startup
         {
             c.SwaggerEndpoint("/swagger/v2/swagger.json", "MVCCallWebAPI");
         });
+
+        app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
         app.UseHttpsRedirection();
 
         app.UseRouting();
