@@ -1,6 +1,9 @@
 using Microsoft.OpenApi.Models;
+using OnsTrou.App.Services;
 using OnsTrou.Application;
+using OnsTrou.Application.Abstractions;
 using OnsTrou.Persistence;
+using OnsTrou.Persistence.Abstractions;
 
 namespace OnsTrou.App;
 
@@ -19,6 +22,9 @@ public class Startup
         services.AddApplication();
         services.AddPersistence(Configuration);
 
+
+        services.AddHttpContextAccessor();
+        services.AddScoped<ITenantProvider, TenantProvider>();
 
         services.AddSwaggerGen(c =>
         {
