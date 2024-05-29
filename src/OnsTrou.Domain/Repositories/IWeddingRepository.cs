@@ -9,5 +9,6 @@ namespace OnsTrou.Domain.Repositories;
 
 public interface IWeddingRepository
 {
+    Task<Wedding> GetMyWedding(CancellationToken cancellationToken = default);
     Task Create(Wedding wedding, CancellationToken cancellationToken = default);
 }
