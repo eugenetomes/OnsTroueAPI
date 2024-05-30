@@ -12,14 +12,8 @@ namespace OnsTrou.Persistence.Repositories
 {
     internal sealed class WeddingRepository : RepositoryBase, IWeddingRepository
     {
-        private readonly IDynamoDBContext _context;
-        private readonly DynamoDBOperationConfig _dynamoDBOperationConfig;
-        
-
-        public WeddingRepository(IDynamoDBContext context, ITenantProvider tenantProvider):base(tenantProvider)
+        public WeddingRepository(IDynamoDBContext context, ITenantProvider tenantProvider):base(context, tenantProvider)
         {
-            _context = context;
-            _dynamoDBOperationConfig = GetConfig();
         }
 
         public async Task<Wedding> GetMyWedding(CancellationToken cancellationToken = default)

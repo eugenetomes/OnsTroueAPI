@@ -23,6 +23,8 @@ public static class DependencyInjection
 
         //Repositories
         services.AddScoped<IWeddingRepository, WeddingRepository>();
+        services.AddScoped<IAccommodationRepository, AccommodationRepository>();
+        
 
         return services;
     }
