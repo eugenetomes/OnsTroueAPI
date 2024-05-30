@@ -11,4 +11,5 @@ public interface IWeddingRepository
 {
     Task<Wedding> GetMyWedding(CancellationToken cancellationToken = default);
     Task Create(Wedding wedding, CancellationToken cancellationToken = default);
+    Task Update(Wedding wedding, CancellationToken cancellationToken = default);
 }

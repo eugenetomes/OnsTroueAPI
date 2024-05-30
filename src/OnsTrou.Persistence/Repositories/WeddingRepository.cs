@@ -37,5 +37,10 @@ namespace OnsTrou.Persistence.Repositories
         {
             await _context.SaveAsync(wedding, _dynamoDBOperationConfig, cancellationToken);
         }
+
+        public async Task Update(Wedding wedding, CancellationToken cancellationToken = default)
+        {
+            await _context.SaveAsync(wedding, _dynamoDBOperationConfig, cancellationToken);
+        }
     }
 }

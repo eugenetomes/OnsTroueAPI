@@ -34,4 +34,9 @@ public class Wedding : AggregateRoot
         var wedding = new Wedding(Guid.NewGuid(), name, eventDateUtc, bride, groom, venue);
         return wedding;
     }
+
+    public void UpdateBride(string name, string surname, string personalMessage)
+    {
+        Bride.Update(name, surname, personalMessage);
+    }
 }
