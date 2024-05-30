@@ -12,7 +12,7 @@ namespace OnsTrou.Application.Features.AccommodationFeature.Mappers
     {
         public static AccommodationResponse MapToAccommodationResponse(this Accommodation accommodation)
         {
-            var accommodationResponse = new AccommodationResponse(accommodation.Id,
+            var accommodationResponse = new AccommodationResponse(Guid.Parse(accommodation.Id),
                 accommodation.Name,
                 accommodation.Description,
                 accommodation.ImagePath,

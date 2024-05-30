@@ -37,6 +37,6 @@ internal sealed class CreateAccommodationCommandHandler : ICommandHandler<Create
 
         await _accommodationRepository.Create(accommodationResult.Value, cancellationToken);
 
-        return accommodationResult.Value.Id;
+        return Guid.Parse(accommodationResult.Value.Id);
     }
 }

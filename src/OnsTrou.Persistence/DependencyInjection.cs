@@ -24,7 +24,10 @@ public static class DependencyInjection
         //Repositories
         services.AddScoped<IWeddingRepository, WeddingRepository>();
         services.AddScoped<IAccommodationRepository, AccommodationRepository>();
+        services.AddScoped<IWeddingGuestRepository, WeddingGuestRepository>();
         
+
+
 
         return services;
     }

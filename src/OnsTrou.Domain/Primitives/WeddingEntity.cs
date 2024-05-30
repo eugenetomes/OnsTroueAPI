@@ -11,7 +11,7 @@ public abstract class WeddingEntity
 {
     public string PartitionKey { get; init; }
 
-    public Guid Id { get; init; }
+    public string Id { get; init; }
 
     protected WeddingEntity()
     {
@@ -19,9 +19,15 @@ public abstract class WeddingEntity
 
     protected WeddingEntity(string entityName,Guid weddingId, Guid id)
     {
-        Id = id;
+        Id = id.ToString();
         PartitionKey = $"{nameof(Wedding)}_{weddingId.ToString()}_{entityName}";
 
+    }
+
+    protected WeddingEntity(string entityName, Guid weddingId, string id)
+    {
+        Id = id;
+        PartitionKey = $"{nameof(Wedding)}_{weddingId.ToString()}_{entityName}";
     }
 }
 
