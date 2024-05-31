@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OnsTrou.Application.Features.WeddingFeature.Queries;
 
-namespace OnsTrou.Application.Features.WeddingFeature.Queries
+public record WeddingResponse(string Name, DateTime EventDateUtc, WeddingResponse.BrideResponse Bride, WeddingResponse.GroomResponse Groom, WeddingResponse.WeddingVenue Venue)
 {
-    public record WeddingResponse(string Name, DateTime EventDateUtc, WeddingResponse.BrideResponse Bride, WeddingResponse.GroomResponse Groom, WeddingResponse.WeddingVenue Venue)
-    {
-        public record BrideResponse(string Name, string Surname, string PersonalMessage);
-        public record GroomResponse(string Name, string Surname, string PersonalMessage);
-        public record WeddingVenue(string Name, string Description, decimal Latitude, decimal Longitude);
-
-    }
+    public record BrideResponse(string Name, string Surname, string PersonalMessage);
+    public record GroomResponse(string Name, string Surname, string PersonalMessage);
+    public record WeddingVenue(string Name, string Description, decimal Latitude, decimal Longitude);
 }

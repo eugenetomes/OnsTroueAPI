@@ -17,5 +17,9 @@
   <ItemGroup>
     <ProjectReference Include="..\OnsTrou.Domain\OnsTrou.Domain.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Features\WeddingGuestFeature\Queries\" />
+  </ItemGroup>
 
 </Project>
