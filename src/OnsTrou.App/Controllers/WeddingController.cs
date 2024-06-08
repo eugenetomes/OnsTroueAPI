@@ -1,10 +1,8 @@
-﻿using Amazon.Runtime.Internal;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OnsTrou.App.Abstractions;
 using OnsTrou.App.Contracts.WeddingFeature;
 using OnsTrou.App.Mappers.WeddingFeature;
-using OnsTrou.Application.Features.WeddingFeature.Commands.CreateWedding;
 using OnsTrou.Application.Features.WeddingFeature.Commands.UpdateBride;
 using OnsTrou.Application.Features.WeddingFeature.Queries.GetMyWedding;
 
@@ -20,7 +18,7 @@ public sealed class WeddingController : ApiController
     public async Task<IActionResult> Create([FromBody] CreateWeddingRequest request, CancellationToken cancellationToken)
     {
         var command = request.MapToCreateWeddingCommand();
-        
+
         var result = await _sender.Send(command, cancellationToken);
 
         if (result.IsSuccess)
@@ -46,7 +44,7 @@ public sealed class WeddingController : ApiController
     [Route("Bride")]
     public async Task<IActionResult> UpdateBride([FromBody] UpdateBrideRequest request, CancellationToken cancellationToken)
     {
-        var result = await _sender.Send(new UpdateBrideCommand(request.Name, request.Surname, request.PersonalMessage), cancellationToken);
+        var result = await _sender.Send(new UpdateBrideCommand(request.Name, request.Surname, request.PersonalMessage, request.Email, request.Telephone), cancellationToken);
 
         if (result.IsSuccess)
         {

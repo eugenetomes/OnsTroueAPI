@@ -9,8 +9,8 @@ public class CreateWeddingRequest
     public WeddingVenue Venue { get; set; }
 
 
-    public record BrideRecord(string Name, string Surname, string PersonalMessage);
-    public record GroomRecord(string Name, string Surname, string PersonalMessage);
+    public record BrideRecord(string Name, string Surname, string PersonalMessage, string Email, string Telephone);
+    public record GroomRecord(string Name, string Surname, string PersonalMessage, string Email, string Telephone);
     public record WeddingVenue(string Name, string Description, decimal Latitude, decimal Longitude);
 
 }

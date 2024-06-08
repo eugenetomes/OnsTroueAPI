@@ -1,3 +1,3 @@
 ﻿namespace OnsTrou.App.Contracts.WeddingFeature;
 
-public record UpdateBrideRequest(string Name, string Surname, string PersonalMessage);
+public record UpdateBrideRequest(string Name, string Surname, string PersonalMessage, string Email, string Telephone);

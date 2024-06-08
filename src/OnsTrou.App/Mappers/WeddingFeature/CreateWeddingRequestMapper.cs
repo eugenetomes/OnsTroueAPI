@@ -7,8 +7,8 @@ internal static class CreateWeddingRequestMapper
 {
     public static CreateWeddingCommand MapToCreateWeddingCommand(this CreateWeddingRequest request)
     {
-        var bride = new CreateWeddingCommand.BrideRecord(request.Bride.Name, request.Bride.Surname, request.Bride.PersonalMessage);
-        var groom = new CreateWeddingCommand.GroomRecord(request.Groom.Name, request.Groom.Surname, request.Groom.PersonalMessage);
+        var bride = new CreateWeddingCommand.BrideRecord(request.Bride.Name, request.Bride.Surname, request.Bride.PersonalMessage, request.Bride.Email, request.Bride.Telephone);
+        var groom = new CreateWeddingCommand.GroomRecord(request.Groom.Name, request.Groom.Surname, request.Groom.PersonalMessage, request.Groom.Email, request.Groom.Telephone);
         var venue = new CreateWeddingCommand.WeddingVenue(request.Venue.Name, request.Venue.Description, request.Venue.Latitude, request.Venue.Longitude);
 
         var command = new CreateWeddingCommand(

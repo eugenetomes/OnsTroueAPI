@@ -1,10 +1,5 @@
 ﻿using EasyCompany.GenericResult.Core;
 using OnsTrou.Domain.Primitives;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnsTrou.Domain.Entities.WeddingFeature;
 
@@ -35,8 +30,8 @@ public class Wedding : AggregateRoot
         return wedding;
     }
 
-    public void UpdateBride(string name, string surname, string personalMessage)
+    public void UpdateBride(string name, string surname, string personalMessage, string email, string telephone)
     {
-        Bride.Update(name, surname, personalMessage);
+        Bride.Update(name, surname, personalMessage, email, telephone);
     }
 }
